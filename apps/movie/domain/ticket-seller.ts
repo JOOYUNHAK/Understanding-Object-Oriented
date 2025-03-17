@@ -1,3 +1,4 @@
+import { Audience } from './audience';
 import { TicketOffice } from './ticket-office';
 
 export class TicketSeller {
@@ -9,5 +10,9 @@ export class TicketSeller {
 
   get ticketOffice(): TicketOffice {
     return this._ticketOffice;
+  }
+
+  sellTo(audience: Audience): void {
+    this._ticketOffice.plusAmount(audience.buy(this.ticketOffice.issueTicket()));
   }
 }
