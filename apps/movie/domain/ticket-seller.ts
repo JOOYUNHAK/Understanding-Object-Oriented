@@ -13,6 +13,6 @@ export class TicketSeller {
   }
 
   sellTo(audience: Audience): void {
-    this._ticketOffice.plusAmount(audience.buy(this.ticketOffice.issueTicket()));
+    this._ticketOffice.sellTicketTo(audience);
   }
 }

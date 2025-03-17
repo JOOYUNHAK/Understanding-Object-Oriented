@@ -16,19 +16,30 @@ export class Bag {
     this._ticket = ticket;
   }
 
-  minusAmount(amount: number) {
-    this._amount -= amount;
-  }
-
   plusAmount(amount: number) {
     this._amount += amount;
   }
 
-  hasInvitation(): boolean {
-    return !!this._invitation;
-  }
-
   hasTicket(): boolean {
     return !!this._ticket;
+  }
+
+  hold(ticket: Ticket): number {
+    if (this.hasInvitation()) {
+      this._ticket = ticket;
+      return 0;
+    } else {
+      this._ticket = ticket;
+      this.minusAmount(ticket.fee);
+      return ticket.fee;
+    }
+  }
+
+  private minusAmount(amount: number) {
+    this._amount -= amount;
+  }
+
+  private hasInvitation(): boolean {
+    return !!this._invitation;
   }
 }
