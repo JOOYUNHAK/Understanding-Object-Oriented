@@ -1,9 +1,9 @@
 import { Money } from '@libs/common/money';
 import { DiscountCondition } from '../discount-condition';
 import { Screening } from '../screening';
-import { DiscountPolicy } from './discount-policy.interface';
+import { DefaultDiscountPolicy } from './discount-policy.interface';
 
-export class PercentDiscountPolicy extends DiscountPolicy {
+export class PercentDiscountPolicy extends DefaultDiscountPolicy {
   private _percent: number;
 
   constructor(percent: number, conditions: DiscountCondition[]) {
